@@ -1,6 +1,11 @@
 const CustomError = require("../errors/CustomError");
 const { User } = require("../models/UserModel");
 
+const getProfileService = async ({ email }) => {
+  const user = await User.findOne({ email });
+  return { success: true, data: user };
+};
+
 const registerService = async ({ name, lastName, email, password }) => {
   const user = new User({
     userId: "user" + Date.now(),
@@ -31,4 +36,5 @@ const loginService = async ({ email, password }) => {
 module.exports = {
   registerService,
   loginService,
+  getProfileService,
 };
