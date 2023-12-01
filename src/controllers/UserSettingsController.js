@@ -1,5 +1,8 @@
 const expressAsyncHandler = require("express-async-handler");
-const { getUserSettingsService, setUserSettingsService } = require("../services/userSettingsServices");
+const {
+  getUserSettingsService,
+  setUserSettingsService,
+} = require("../services/userSettingsServices");
 
 class UserSettingsController {
   static getUserSettings = expressAsyncHandler(async (req, res) => {

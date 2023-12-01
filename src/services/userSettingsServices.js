@@ -10,9 +10,9 @@ const getUserSettingsService = async ({ userId }) => {
   return { success: true, data: settings };
 };
 const setUserSettingsService = async ({ userId, findAtOpening }) => {
-  const { settings } = await UserSettings.findByIdAndUpdate(
+  const { settings } = await UserSettings.findOneAndUpdate(
     { userId },
-    { findAtOpening },
+    { settings: { findAtOpening } },
     { upsert: true, new: true }
   );
 
