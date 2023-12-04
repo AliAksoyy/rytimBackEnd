@@ -39,7 +39,7 @@ class UserPlaylistController {
   static updatePlaylistName = expressAsyncHandler(async (req, res) => {
     const { userId } = req.user;
     const { playlistId } = req.params;
-    const { playlistName } = req.params;
+    const { playlistName } = req.body;
 
     const response = await updatePlaylistNameService({
       userId,
